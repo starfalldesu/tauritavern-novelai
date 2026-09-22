@@ -19,8 +19,10 @@
 //
 // 兼容：TauriTavern 与标准 SillyTavern 均可使用。
 
-import { eventSource, event_types, saveSettingsDebounced } from '../../../script.js';
-import { extension_settings } from '../../extensions.js';
+// 注意：第三方扩展位于 /scripts/extensions/third-party/<name>/，比内置扩展深一级，
+//       因此 script.js 需要 4 级 ../（→ /script.js），extensions.js 需要 3 级（→ /scripts/extensions.js）。
+import { eventSource, event_types, saveSettingsDebounced } from '../../../../script.js';
+import { extension_settings } from '../../../extensions.js';
 
 // 在包装 window.fetch 之前保存原始引用，转发真实请求时使用，避免递归。
 // 注意：TauriTavern 自身也会 patch fetch 做本地路由，我们包在它外层；
